@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+	<h1><button id="settingsButton">Setting</button></h1>
+	
+	<h1> Invoice Maker</h1>
+	<!-- Header dengan Logo dan Info Perusahaan -->
+        <div class="company-header">
+            <div class="logo">
+                <img id="logoPreview" src="#" alt="Logo Perusahaan">
+                <!--<label for="companyLogo">Logo</label>
+                <input type="file" id="companyLogo" accept="image/*">-->
+            </div>
+            <div class="company-info">
+                <h2 id="companyNameLabel">Nama Perusahaan</h2>
+                <p id="companyAddressLabel">Alamat Perusahaan</p>
+            </div>
+        </div>
+	<!-- Dialog Popup -->
+	<div id="settingsModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Pengaturan Perusahaan</h2>
+		<div class="logo">
+                <img id="logoPreview" src="#" alt="Logo Perusahaan" style="display: none;">
+                <label for="companyLogo">Logo</label>
+                <input type="file" id="companyLogo" accept="image/*">
+            </div>
+        <div class="setting-group">
+            <label for="companyName">Nama Perusahaan:</label>
+            <input type="text" id="companyName" placeholder="Masukkan nama perusahaan">
+        </div>
+        <div class="setting-group">
+            <label for="companyAddress">Alamat Perusahaan:</label>
+            <input type="text" id="companyAddress" placeholder="Masukkan alamat perusahaan">
+        </div>
+		<div class="setting-group">
+			<label for="NumInvSfx">Format Nomor Invoice : </label>
+			<input type="text" id="InvSuffix" placeholder="INV" style="width: 40px;">
+			<label for="NumInv"> - </label>
+			<input type="number" id="InvNumber" placeholder="1" style="width: 40px;">
+			
+		</div>
+        <button id="saveSettings">Simpan</button>
+    </div>
+</div>
+
+        <hr>
+        <div class="invoice-form">
+            <!-- Input Logo Perusahaan -->
+           <!-- <div class="form-group"> 
+                <label for="companyLogo">Logo Perusahaan:</label>
+                <input type="file" id="companyLogo" accept="image/*">
+            </div>
+			-->
+            <!-- Input Nomor Invoice -->
+         <div class="invoice-info">
+            <!-- Nama Pelanggan (Kiri) -->
+            <div class="customer-info">
+				<div class="form-group">
+					<label for="customerName">Nama Pelanggan:</label>
+					<input type="text" id="customerName" placeholder="Masukkan nama pelanggan">
+				</div>
+            </div>
+
+            <!-- Informasi Invoice (Kanan) -->
+            <div class="invoice-details">
+                <div class="form-group">
+                    <label for="invoiceNumber">Nomor Invoice:</label>
+                    <input type="text" id="invoiceNumber" placeholder="Masukkan nomor invoice">
+                </div>
+                <div class="form-group">
+                    <label for="invoiceDate">Tanggal Invoice:</label>
+                    <input type="date" id="invoiceDate">
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Jatuh Tempo:</label>
+                    <input type="date" id="dueDate">
+                </div>
+            </div>
+		 </div>
+		 
+            <!-- Daftar Item -->
+            <div class="items">
+                <h3>Items</h3>
+                <div class="item">
+                    <input type="text" class="item-name" placeholder="Nama item">
+                    <input type="number" class="item-quantity" placeholder="Qty">
+                    <input type="number" class="item-price" placeholder="Harga">
+                    <span class="item-total">0</span>
+                    <button class="remove-item">Hapus</button>
+                </div>
+            </div>
+            <button id="addItem">Tambah Item</button>
+            <!-- Total Harga -->
+            <div class="total">
+                <h3>Total: <span id="totalAmount">0</span></h3>
+            </div>
+            <!-- Tombol Export PDF -->
+            <button id="exportPdf">Export ke PDF</button>
+        </div>
+    </div>
+    <!-- Include jsPDF and AutoTable -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
